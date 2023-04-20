@@ -1,20 +1,13 @@
 package com.example.checklist;
 
-import static com.example.checklist.QuestionsTypes.numeric;
-
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.LinearLayout;
-import android.widget.ListView;
 import android.widget.TextView;
-
-import com.example.checklist.utils.ListAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,8 +16,8 @@ public class MainActivity extends AppCompatActivity {
 
 
     private TextView textView;
-    private Button zone1Button, subzone11Button, subzone21Button, subzone31Button, zone2Button, subzone12Button, zone3Button, subzone13Button;
-    private LinearLayout subzone1Panel, subzone2Panel, subzone3Panel;
+    private Button buttonZoneA, buttonZoneASubzoneOne, buttonZoneASubzoneTwo, buttonZoneASubzoneThree, buttonZoneB, buttonZoneBSubzoneOne, buttonZoneC, buttonZoneCSubzoneOne;
+    private LinearLayout subzoneOnePanel, subzoneTwoPanel, subzoneThreePanel;
     private List<LinearLayout> expandibleLayout;
 
     @Override
@@ -36,45 +29,58 @@ public class MainActivity extends AppCompatActivity {
 
         textView = findViewById(R.id.textView);
 
-        zone1Button = findViewById(R.id.zone1_button);
-        zone2Button = findViewById(R.id.zone2_button);
-        zone3Button = findViewById(R.id.zone3_button);
+        buttonZoneA = findViewById(R.id.zone_a_button);
+        buttonZoneB = findViewById(R.id.zone_b_button);
+        buttonZoneC = findViewById(R.id.zone_c_button);
 
-        subzone11Button = findViewById(R.id.subzone1_1_button);
-        subzone12Button = findViewById(R.id.subzone1_2_button);
-        subzone13Button = findViewById(R.id.subzone1_3_button);
+        buttonZoneASubzoneOne = findViewById(R.id.button_zone_a_subzone_one);
+        buttonZoneASubzoneTwo = findViewById(R.id.button_zone_a_subzone_two);
+        buttonZoneASubzoneThree = findViewById(R.id.button_zone_a_subzone_three);
 
-        subzone21Button = findViewById(R.id.subzone2_1_button);
-        subzone31Button = findViewById(R.id.subzone3_1_button);
+        buttonZoneBSubzoneOne = findViewById(R.id.button_zone_b_subzone_one);
+        buttonZoneCSubzoneOne = findViewById(R.id.button_zone_c_subzone_one);
 
-        subzone1Panel = findViewById(R.id.subzone_1_panel);
-        subzone2Panel = findViewById(R.id.subzone_2_panel);
-        subzone3Panel = findViewById(R.id.subzone_3_panel);
+        subzoneOnePanel = findViewById(R.id.subzone_a_panel);
+        subzoneTwoPanel = findViewById(R.id.subzone_b_panel);
+        subzoneThreePanel = findViewById(R.id.subzone_c_panel);
 
-        expandibleLayout.add(findViewById(R.id.subzone_1_panel));
-        expandibleLayout.add(findViewById(R.id.subzone_2_panel));
-        expandibleLayout.add(findViewById(R.id.subzone_3_panel));
+        expandibleLayout.add(findViewById(R.id.subzone_a_panel));
+        expandibleLayout.add(findViewById(R.id.subzone_b_panel));
+        expandibleLayout.add(findViewById(R.id.subzone_c_panel));
 
-        zone1Button.setOnClickListener(createLayoutButtonListener(0));
-        zone2Button.setOnClickListener(createLayoutButtonListener(1));
-        zone3Button.setOnClickListener(createLayoutButtonListener(2));
+        buttonZoneA.setOnClickListener(createLayoutButtonListener(0));
+        buttonZoneB.setOnClickListener(createLayoutButtonListener(1));
+        buttonZoneC.setOnClickListener(createLayoutButtonListener(2));
 
 
 
         // Set a click listener on that View
-        subzone11Button.setOnClickListener(new View.OnClickListener() {
+        buttonZoneASubzoneOne.setOnClickListener(new View.OnClickListener() {
             // The code in this method will be executed when the numbers View is clicked on.
             @Override
             public void onClick(View view) {
-                Intent subzoneIntent = new Intent(MainActivity.this, SubzoneOne.class);
+                Intent subzoneIntent = new Intent(MainActivity.this, SubzoneOneZoneA.class);
                 startActivity(subzoneIntent);
             }
         });
 
+        buttonZoneBSubzoneOne.setOnClickListener(new View.OnClickListener() {
+            // The code in this method will be executed when the numbers View is clicked on.
+            @Override
+            public void onClick(View view) {
+                Intent subzoneIntent = new Intent(MainActivity.this, SubzoneOneZoneB.class);
+                startActivity(subzoneIntent);
+            }
+        });
 
-
-
-
+        buttonZoneCSubzoneOne.setOnClickListener(new View.OnClickListener() {
+            // The code in this method will be executed when the numbers View is clicked on.
+            @Override
+            public void onClick(View view) {
+                Intent subzoneIntent = new Intent(MainActivity.this, SubzoneOneZoneC.class);
+                startActivity(subzoneIntent);
+            }
+        });
 
     }
 
@@ -102,3 +108,29 @@ public class MainActivity extends AppCompatActivity {
 
 }
 
+
+/*
+apro l'app > cicco su una subzone > dati che rimangono salvati nell'app anche se
+la chiudo savahandler, preferences, exc..., > compilo il form ( form con selezione
+radiobutton non solo edittext) > salva > invia
+
+invia report-code, ovvero oggetto chiave-valore:
+
+chiave subzone1-id1: "stringa di risposte in formato numerico"
+
+i report devono avere un numero limitato giornaliero, se uno prova a reinviare nello stesso giorno > opzione modifica > reinvia
+
+check invio per evitare copie di dati:
+ZONE A
+report inviabile 1 volta al giorno, se richiesta invio, richiesta di modifica report precedentemente compilato, invio modifiche,
+quindi, classe per inviare da db e non in modo diretto
+ZONE B
+cod = cod && dati != dati
+oppure
+cod != cod && dati!=dati
+ZONE C = ZONE A (ma inviabile solo settimanalmente)
+
+invia (volley) > back-end
+
+
+ */

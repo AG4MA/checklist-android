@@ -8,11 +8,10 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.checklist.Questions;
+import com.example.checklist.model.entities.Questions;
 import com.example.checklist.R;
 
 import java.util.List;
-
 
 //3. Recycle view --> 2.List Adapter --> 1.ViewHolder
 public class ListAdapter extends RecyclerView.Adapter<ViewHolder> {
@@ -24,10 +23,11 @@ public class ListAdapter extends RecyclerView.Adapter<ViewHolder> {
     public ListAdapter(List<Questions> questions, Context context) {
         this.questions = questions;
         this.context = context;
-        //perchè si usa inflater?
+
         inflater = LayoutInflater.from(context);
     }
 
+    //renderizza la viewHolder
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -40,7 +40,6 @@ public class ListAdapter extends RecyclerView.Adapter<ViewHolder> {
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Questions question = questions.get(position);
         holder.updateContent(question.getDomanda());
-
     }
 
     @Override

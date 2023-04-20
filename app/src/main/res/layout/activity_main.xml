@@ -46,14 +46,14 @@
                 android:orientation="vertical">
 
                 <Button
-                    android:id="@+id/zone1_button"
+                    android:id="@+id/zone_a_button"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="zona1" />
+                    android:text="zone A" />
 
 
                 <LinearLayout
-                    android:id="@+id/subzone_1_panel"
+                    android:id="@+id/subzone_a_panel"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="-15dp"
@@ -68,26 +68,26 @@
 
 
                     <Button
-                        android:id="@+id/subzone1_1_button"
+                        android:id="@+id/button_zone_a_subzone_one"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:backgroundTint="#EE5D26DF"
-                        android:text="subzone1"
-                        android:onClick="openSubzoneOne"/>
+                        android:text="subzone 1" />
+
 
                     <Button
-                        android:id="@+id/subzone2_1_button"
+                        android:id="@+id/button_zone_a_subzone_two"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:backgroundTint="#EE5D26DF"
-                        android:text="subzone2" />
+                        android:text="subzone 2" />
 
                     <Button
-                        android:id="@+id/subzone3_1_button"
+                        android:id="@+id/button_zone_a_subzone_three"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:backgroundTint="#EE5D26DF"
-                        android:text="subzone3" />
+                        android:text="subzone 3" />
                 </LinearLayout>
             </LinearLayout>
 
@@ -100,13 +100,13 @@
                 android:orientation="vertical">
 
                 <Button
-                    android:id="@+id/zone2_button"
+                    android:id="@+id/zone_b_button"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="zona2" />
+                    android:text="zona B" />
 
                 <LinearLayout
-                    android:id="@+id/subzone_2_panel"
+                    android:id="@+id/subzone_b_panel"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="-15dp"
@@ -120,11 +120,11 @@
                     android:visibility="gone">
 
                     <Button
-                        android:id="@+id/subzone1_2_button"
+                        android:id="@+id/button_zone_b_subzone_one"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:backgroundTint="#EE5D26DF"
-                        android:text="subzone1" />
+                        android:text="subzone 1" />
 
                 </LinearLayout>
             </LinearLayout>
@@ -138,13 +138,13 @@
                 android:orientation="vertical">
 
                 <Button
-                    android:id="@+id/zone3_button"
+                    android:id="@+id/zone_c_button"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="zona3" />
+                    android:text="zona C" />
 
                 <LinearLayout
-                    android:id="@+id/subzone_3_panel"
+                    android:id="@+id/subzone_c_panel"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="-15dp"
@@ -158,11 +158,11 @@
                     android:visibility="gone">
 
                     <Button
-                        android:id="@+id/subzone1_3_button"
+                        android:id="@+id/button_zone_c_subzone_one"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:backgroundTint="#EE5D26DF"
-                        android:text="subzone1" />
+                        android:text="subzone 1" />
 
                 </LinearLayout>
             </LinearLayout>

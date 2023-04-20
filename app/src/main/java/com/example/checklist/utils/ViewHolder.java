@@ -3,14 +3,9 @@ package com.example.checklist.utils;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
-
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.example.checklist.R;
-
-import org.w3c.dom.Text;
-
 
 //3. Recycle view --> 2.List Adapter --> 1.ViewHolder
 public class ViewHolder extends RecyclerView.ViewHolder {
@@ -23,7 +18,7 @@ public class ViewHolder extends RecyclerView.ViewHolder {
         super(itemView);
 
         domanda = itemView.findViewById(R.id.domanda);
-        risposta = itemView.findViewById(R.id.risposta);
+        risposta = itemView.findViewById(R.id.risposta_hb);
     }
 
     public void updateContent(String domanda) {

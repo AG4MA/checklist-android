@@ -8,35 +8,45 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 
+import com.example.checklist.model.entities.Questions;
 import com.example.checklist.utils.ListAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class SubzoneOne extends AppCompatActivity {
+public class SubzoneOneZoneB extends AppCompatActivity {
+
     private RecyclerView recycleView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        //perché onCreate richiama classe padre?
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_subzone_one);
-        //quale il senso?
-        recycleView = findViewById(R.id.recycle_subzone_one);
+        setContentView(R.layout.activity_subzone_one_zone_b);
+        recycleView = findViewById(R.id.recycle_subzone_one_zone_b);
 
-        //temporanea
+        //esempio domanda
         List<Questions> questions = new ArrayList<>();
         questions.add(new Questions("domanda uno", 1212, numeric));
         questions.add(new Questions("domanda due", 532, numeric));
         questions.add(new Questions("domanda tre", 1252612, numeric));
+        questions.add(new Questions("domanda tre", 1252612, numeric));
+        questions.add(new Questions("domanda tre", 1252612, numeric));
+        questions.add(new Questions("domanda tre", 1252612, numeric));
+        questions.add(new Questions("domanda tre", 1252612, numeric));
+        questions.add(new Questions("domanda tre", 1252612, numeric));
+        questions.add(new Questions("domanda tre", 1252612, numeric));
+        questions.add(new Questions("domanda tre", 1252612, numeric));
+        questions.add(new Questions("domanda tre", 1252612, numeric));
         ListAdapter listAdapter = new ListAdapter(questions, this);
+
         //perchè si usa?
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         layoutManager.setOrientation(RecyclerView.VERTICAL);
         recycleView.setLayoutManager(layoutManager);
+
         //qualè il senso?
         recycleView.setAdapter(listAdapter);
 
         //3. Recycle view --> 2.List Adapter --> 1.ViewHolder
-
-
     }
 }

@@ -1,4 +1,6 @@
-package com.example.checklist;
+package com.example.checklist.model.entities;
+
+import com.example.checklist.QuestionsTypes;
 
 public class Questions {
     private String domanda;
