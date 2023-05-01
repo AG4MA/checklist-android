@@ -5,30 +5,30 @@ import com.google.gson.annotations.SerializedName;
 import java.util.List;
 
 public class ReportCode {
+    private String identifier;
 
-    private String key;
-    private List<String> value;
+    private List<String> valore;
 
-    public ReportCode(){}
-
-    public ReportCode(String key, List<String> value){
-        this.key = key;
-        this.value = value;
+    public ReportCode(String identifier, List<String> valore) {
+        this.identifier = identifier;
+        this.valore = valore;
     }
 
-    public String getKey() {
-        return key;
+    public ReportCode() {}
+
+    public String getIdentifier() {
+        return identifier;
     }
 
-    public void setKey(String key) {
-        this.key = key;
+    public void setIdentifier(String identifier) {
+        this.identifier = identifier;
     }
 
-    public List<String> getValue() {
-        return value;
+    public List<String> getValore() {
+        return valore;
     }
 
-    public void setValue(List<String> value) {
-        this.value = value;
+    public void setValore(List<String> valore) {
+        this.valore = valore;
     }
 }

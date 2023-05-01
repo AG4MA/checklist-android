@@ -12,6 +12,7 @@ import com.example.checklist.model.entities.Questions;
 import com.example.checklist.utils.ListAdapter;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class SubzoneOneZoneC extends AppCompatActivity {
@@ -50,3 +51,6 @@ public class SubzoneOneZoneC extends AppCompatActivity {
         //3. Recycle view --> 2.List Adapter --> 1.ViewHolder
     }
 }
+
+
+

@@ -26,6 +26,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 
@@ -36,6 +37,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class SubzoneOneZoneA extends AppCompatActivity {
 
     List<String> reportCode = new ArrayList<>();
+    HashMap<String,String> reportCodeHash = new HashMap<String,String>();
     public String reportCodeS;
     public TextView date,time,dayTimePeriod;
     private EditText hbLevel,j2003Level,tkLevel;
@@ -131,10 +133,60 @@ public class SubzoneOneZoneA extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
+                //int myInt = myBoolean ? 1 : 0;
+
+                reportCodeHash.put("day",String.valueOf(day));
+                reportCodeHash.put("month",String.valueOf(month));
+                reportCodeHash.put("year",String.valueOf(year));
+                reportCodeHash.put("hour",String.valueOf(hour));
+                reportCodeHash.put("minute",String.valueOf(minute));
+                reportCodeHash.put("hbLevel",String.valueOf(hbLevel.getText()));
+                reportCodeHash.put("j2003Status",String.valueOf(j2003Status.isChecked()));
+                reportCodeHash.put("j2003Level",String.valueOf(j2003Level.getText()));
+                RadioButton button = findViewById(mainPumpChoosen.getCheckedRadioButtonId());
+                reportCodeHash.put("mainPumpChoosen",String.valueOf(button.getText()));
+                RadioButton button1 = findViewById(filterPumpChoosen.getCheckedRadioButtonId());
+                reportCodeHash.put("filterPumpChoosen",String.valueOf(button1.getText()));
+                reportCodeHash.put("portataValue",String.valueOf(portataValue.getText()));
+                reportCodeHash.put("comprStatus",String.valueOf(comprStatus.isChecked()));
+                reportCodeHash.put("phValue",String.valueOf(phValue.getText()));
+                reportCodeHash.put("sabbiaStatus",String.valueOf(sabbiaStatus.isChecked()));
+                reportCodeHash.put("carboneStatus",String.valueOf(carboneStatus.isChecked()));
+                reportCodeHash.put("controlavaggioStatus",String.valueOf(controlavaggioStatus.isChecked()));
+                RadioButton button2 = findViewById(uscitaAcquaChoosen.getCheckedRadioButtonId());
+                reportCodeHash.put("uscitaAcquaChoosen",String.valueOf(button2.getText()));
+                reportCodeHash.put("selettoreStatus",String.valueOf(selettoreStatus.isChecked()));
+                reportCodeHash.put("tocValue",String.valueOf(tocValue.getText()));
+                reportCodeHash.put("codValue",String.valueOf(codValue.getText()));
+                if (nessunaSoluzione.isChecked()) {reportCodeHash.put("nessunaSoluzione", "true");} else {reportCodeHash.put("nessunaSoluzione", "false");}
+                if (soluzioneUno.isChecked()) {reportCodeHash.put("soluzioneUno", "true");} else {reportCodeHash.put("soluzioneUno", "false");}
+                if (soluzioneDue.isChecked()) {reportCodeHash.put("soluzioneDue", "true");} else {reportCodeHash.put("soluzioneDue", "false");}
+                if (soluzioneTre.isChecked()) {reportCodeHash.put("soluzioneTre", "true");} else {reportCodeHash.put("soluzioneTre", "false");}
+                if (soluzioneQuattro.isChecked()) {reportCodeHash.put("soluzioneQuattro", "true");} else {reportCodeHash.put("soluzioneQuattro", "false");}
+                reportCodeHash.put("aromaValue",String.valueOf(aromaValue.getText()));
+                reportCodeHash.put("mtbValue",String.valueOf(mtbValue.getText()));
+                reportCodeHash.put("hplcTocValue",String.valueOf(hplcTocValue.getText()));
+                reportCodeHash.put("elioValue",String.valueOf(elioValue.getText()));
+                RadioButton button3 = findViewById(tkChoosen.getCheckedRadioButtonId());
+                reportCodeHash.put("tkChoosen",String.valueOf(button3.getText()));
+                reportCodeHash.put("tkLevel",String.valueOf(tkLevel.getText()));
+                reportCodeHash.put("schiumaStatus",String.valueOf(schiumaStatus.isChecked()));
+
+
+
+
                 /*RadioButton button = findViewById(mainPumpChoosen.getCheckedRadioButtonId());
                 RadioButton button1 = findViewById(filterPumpChoosen.getCheckedRadioButtonId());
                 RadioButton button2 = findViewById(uscitaAcquaChoosen.getCheckedRadioButtonId());
                 RadioButton button3 = findViewById(tkChoosen.getCheckedRadioButtonId());
+
+
+                if (nessunaSoluzione.isChecked()) {nessunaSoluzione = 1;} else {nessunaSoluzione = 0;}
+                if (nessunaSoluzione.isChecked()) {nessunaSoluzione = 1;} else {nessunaSoluzione = 0;}
+                if (nessunaSoluzione.isChecked()) {nessunaSoluzione = 1;} else {nessunaSoluzione = 0;}
+                if (nessunaSoluzione.isChecked()) {nessunaSoluzione = 1;} else {nessunaSoluzione = 0;}
+
+
                 String reportCodeS=(new StringBuilder())
                         .append(day)
                         .append(month)
@@ -172,7 +224,7 @@ public class SubzoneOneZoneA extends AppCompatActivity {
                         .toString();*/
 
 
-                reportCode.removeAll(reportCode);
+                /*reportCode.removeAll(reportCode);
                 reportCode.add(String.valueOf(day));
                 reportCode.add(String.valueOf(month));
                 reportCode.add(String.valueOf(year));
@@ -208,17 +260,17 @@ public class SubzoneOneZoneA extends AppCompatActivity {
                 RadioButton button3 = findViewById(tkChoosen.getCheckedRadioButtonId());
                 reportCode.add(String.valueOf(button3.getText()));
                 reportCode.add(String.valueOf(tkLevel.getText()));
-                reportCode.add(String.valueOf(schiumaStatus.isChecked()));
+                reportCode.add(String.valueOf(schiumaStatus.isChecked()));*/
 
 
-                Toast.makeText(context, String.valueOf(reportCode), Toast.LENGTH_SHORT).show();
-                System.out.println(reportCode);
+                Toast.makeText(context, String.valueOf(reportCodeHash), Toast.LENGTH_SHORT).show();
+                System.out.println(reportCodeHash);
 
             }
         });
 
         //http test
-        ReportCode reportCodeHttp = new ReportCode("Tae", reportCode){};
+        ReportCode reportCodeHttp = new ReportCode("Zone 1", reportCode){};
         httpButton = findViewById(R.id.http_button);
         ReportCodeController reportCodeController = new ReportCodeController();
         httpButton.setOnClickListener(new View.OnClickListener() {
